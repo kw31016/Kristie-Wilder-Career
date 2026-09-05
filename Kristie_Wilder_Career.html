@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kristie Wilder — The Results</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #2d5a3d;
+            --accent: #e74c3c;
+            --light: #f7f3f0;
+            --text: #2c2c2c;
+            --muted: #999;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* ═══════════════════════════════════════════════════════════ */
+        /* INTRO SPLASH - IMMEDIATE IMPACT */
+        /* ═══════════════════════════════════════════════════════════ */
+
+        .intro {
+            background: var(--primary);
+            color: var(--light);
+            padding: 15vh 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .intro::before {
+            display: none;
+        }
+
+        .intro-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .intro-pretitle {
+            font-size: 0.9rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .intro h1 {
+            font-size: clamp(3rem, 10vw, 5.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.03em;
+            animation: fadeInUp 0.8s ease-out 0.1s backwards;
+        }
+
+        .intro-tagline {
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: rgba(247, 243, 240, 0.85);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .intro-cta {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border: 2px solid var(--accent);
+            transition: all 0.4s ease;
+            animation: fadeInUp 0.8s ease-out 0.3s backwards;
+            cursor: pointer;
+        }
+
+        .intro-cta:hover {
+            background: transparent;
+            color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        /* ═══════════════════════════════════════════════════════════ */
+        /* CHALLENGE-ACTION-RESULT SCROLLYTELLING */
+        /* ═══════════════════════════════════════════════════════════ */
+
+        .story-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 4rem 2rem;
+            background: var(--light);
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 900px) {
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        .story-text h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .story-text h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .story-text p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text);
+            margin-bottom: 1.2rem;
+        }
+
+        .story-visual {
+            position: relative;
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            min-height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .visual-metric {
+            text-align: center;
+        }
+
+        .visual-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .visual-label {
+            font-size: 1rem;
+            color: var(--text);
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .visual-description {
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        /* Dark story section */
+        .story-section.dark {
+            background: var(--primary);
+            color: var(--light);
+        }
+
+        .story-section.dark .story-text h2 {
+            color: var(--light);
+        }
+
+        .story-section.dark .story-visual {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .story-section.dark .visual-metric {
+            color: var(--light);
+        }
+
+        .story-section.dark .story-text p {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* ═══════════════════════════════════════════════════════════ */
+        /* STAT CARDS GRID */
+        /* ═══════════════════════════════════════════════════════════ */
+
+        .stats-section {
+            background: var(--secondary);
+            color: white;
+            padding: 6rem 2rem;
+        }
+
+        .stats-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .stats-header h2 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .stats-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 2.5rem 2rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-card:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: var(--accent);
+            transform: translateY(-8px);
+        }
+
+        .stat-card-number {
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .stat-card-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .stat-card-text {
+            font-size: 0.9rem;
+            opacity: 0.85;
+            line-height: 1.6;
+        }
+
+        /* ═══════════════════════════════════════════════════════════ */
+        /* CAPABILITIES SECTION */
+        /* ═══════════════════════════════════════════════════════════ */
+
+        .capabilities {
+            background: var(--light);
+            padding: 6rem 2rem;
+        }
+
+        .capabilities-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .capabilities-intro h2 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+        }
+
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .capability-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .capability-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent);
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.3s ease;
+        }
+
+        .capability-card:hover {
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+            transform: translateY(-8px);
+        }
+
+        .capability-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .capability-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .capability-card h3 {
+            font-size: 1.3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .capability-card p {
+            font-size: 0.95rem;
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        .capability-list {
+            list-style: none;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .capability-list li {
+            padding: 0.4rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .capability-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 900;
+        }
+
+        /* ═══════════════════════════════════════════════════════════ */
+        /* FINAL CTA */
+        /* ═══════════════════════════════════════════════════════════ */
+
+        .final-cta {
+            background: var(--primary);
+            color: var(--light);
+            padding: 8rem 2rem;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+        }
+
+        .final-cta p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border: 2px solid;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--light);
+            border-color: var(--light);
+        }
+
+        .btn-secondary:hover {
+            background: var(--light);
+            color: var(--primary);
+            transform: translateY(-4px);
+        }
+
+        /* ═══════════════════════════════════════════════════════════ */
+        /* FOOTER */
+        /* ═══════════════════════════════════════════════════════════ */
+
+        footer {
+            background: var(--secondary);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ═══════════════════════════════════════════════════════════ */
+        /* ANIMATIONS */
+        /* ═══════════════════════════════════════════════════════════ */
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Scroll reveal trigger */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- ════════════════════════════════════════════════════════════ -->
+    <!-- INTRO -->
+    <!-- ════════════════════════════════════════════════════════════ -->
+
+    <section class="intro">
+        <div class="intro-inner">
+            <div class="intro-pretitle">Executive Analytics Leader</div>
+            <h1>The Results Speak</h1>
+            <p class="intro-tagline">14 years building systems that operate flawlessly under pressure. Teams that execute when it matters. Analytics that move business decisions.</p>
+            <a href="#story-one" class="intro-cta">See What I've Built</a>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════════ -->
+    <!-- STORY 1: DELIVERY EXCELLENCE -->
+    <!-- ════════════════════════════════════════════════════════════ -->
+
+    <section class="story-section" id="story-one">
+        <div class="story-grid scroll-reveal">
+            <div class="story-text">
+                <h3>Challenge</h3>
+                <h2>Production Pipeline Was Fragile</h2>
+                <p>A national data operation running on manual processes. Variance between cycles. Time slipping. Quality dependent on vigilance, not system design.</p>
+                
+                <h3>Action</h3>
+                <p>Rebuilt the entire pipeline from the ground up. Eliminated manual handoffs. Built automated error detection. Designed for resilience, not heroics.</p>
+                
+                <h3>Result</h3>
+                <p>25% faster delivery. Five consecutive production cycles with zero defects. Work that previously required constant oversight now runs clean, documented, and repeatable.</p>
+            </div>
+            <div class="story-visual">
+                <div class="visual-metric">
+                    <div class="visual-number">25%</div>
+                    <div class="visual-label">Faster Delivery</div>
+                    <div class="visual-description">End-to-end pipeline re-engineered. Manual variance eliminated. Automated error detection. Five consecutive cycles with zero defects.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════════ -->
+    <!-- STORY 2: ENGAGEMENT & NARRATIVE -->
+    <!-- ════════════════════════════════════════════════════════════ -->
+
+    <section class="story-section dark">
+        <div class="story-grid scroll-reveal">
+            <div class="story-visual">
+                <div class="visual-metric">
+                    <div class="visual-number">149</div>
+                    <div class="visual-label">Embargo Logins (March 2025)</div>
+                    <div class="visual-description">One release. 12 front-page placements. Highest engagement in 3 years. 40% growth year-over-year.</div>
+                </div>
+            </div>
+            <div class="story-text">
+                <h3>Challenge</h3>
+                <h2>Data Wasn't Speaking To Anyone</h2>
+                <p>Numbers exist. But stakeholders weren't hearing them. Media didn't understand the impact. Engagement was flat.</p>
+                
+                <h3>Action</h3>
+                <p>Redesigned the entire communication model from the ground up. Restructured narratives. Repositioned data as authoritative insight, not just statistics.</p>
+                
+                <h3>Result</h3>
+                <p>40% engagement growth. Three stories ranked #1 most viewed in their release month. 40+ media interviews. Data that actually moves decisions because people understand what it means.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════════ -->
+    <!-- STORY 3: TEAM TRANSFORMATION -->
+    <!-- ════════════════════════════════════════════════════════════ -->
+
+    <section class="story-section" id="story-three">
+        <div class="story-grid scroll-reveal">
+            <div class="story-text">
+                <h3>Challenge</h3>
+                <h2>25% Annual Attrition. Burned Out Team.</h2>
+                <p>Good people leaving. Remaining team carrying too much. No development pathway. Work felt transactional, not developmental.</p>
+                
+                <h3>Action</h3>
+                <p>Built a new development model. Domain ownership. Structured coaching. Deliberate stretch assignments tied to real capability building, not just "more work."</p>
+                
+                <h3>Result</h3>
+                <p>Attrition dropped to near-zero. Multiple analysts promoted. Team that wants to stay and grow. People who do harder work because they trust they're building something real.</p>
+            </div>
+            <div class="story-visual">
+                <div class="visual-metric">
+                    <div style="font-size: 2.8rem; margin-bottom: 0.5rem;">
+                        <span style="color: var(--accent); font-weight: 900;">25%</span>
+                        <span style="color: var(--muted); font-size: 1.5rem; margin: 0 0.8rem;"> → </span>
+                        <span style="color: var(--accent); font-weight: 900;">0%</span>
+                    </div>
+                    <div class="visual-label">Attrition Rate</div>
+                    <div class="visual-description">From burning out good people to building talent that stays and grows.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════════ -->
+    <!-- STATS SECTION -->
+    <!-- ════════════════════════════════════════════════════════════ -->
+
+    <section class="stats-section">
+        <div class="stats-header">
+            <h2>By The Numbers</h2>
+            <p>Quantified impact across operations, engagement, and team development</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card scroll-reveal">
+                <div class="stat-card-number">$1.5T</div>
+                <div class="stat-card-title">Annual Impact</div>
+                <div class="stat-card-text">National data informing annual resource allocation decisions</div>
+            </div>
+
+            <div class="stat-card scroll-reveal">
+                <div class="stat-card-number">14</div>
+                <div class="stat-card-title">Years Leadership</div>
+                <div class="stat-card-text">Building systems and teams at national scale</div>
+            </div>
+
+            <div class="stat-card scroll-reveal">
+                <div class="stat-card-number">50%</div>
+                <div class="stat-card-title">Production Reduction</div>
+                <div class="stat-card-text">Cycle time cut in half through pipeline re-engineering</div>
+            </div>
+
+            <div class="stat-card scroll-reveal">
+                <div class="stat-card-number">1,490+</div>
+                <div class="stat-card-title">Media Placements</div>
+                <div class="stat-card-text">From single release. 12 front-page stories.</div>
+            </div>
+
+            <div class="stat-card scroll-reveal">
+                <div class="stat-card-number">100%</div>
+                <div class="stat-card-title">Audit Compliance</div>
+                <div class="stat-card-text">Five consecutive cycles. Zero findings.</div>
+            </div>
+
+            <div class="stat-card scroll-reveal">
+                <div class="stat-card-number">2X</div>
+                <div class="stat-card-title">Bronze Medals</div>
+                <div class="stat-card-text">Department of Commerce recognition for strategic leadership</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════════ -->
+    <!-- WHYLDER CONSULTING -->
+    <!-- ════════════════════════════════════════════════════════════ -->
+
+    <section class="story-section">
+        <div class="story-grid scroll-reveal">
+            <div class="story-text">
+                <h3>Strategic Consulting</h3>
+                <h2>Whylder Consulting — Fractional Strategy & PMO</h2>
+                <p>Founded 2017. Fractional PMO and data strategy practice serving mission-driven organizations. Started with nonprofits; now scaling to corporate analytics transformation engagements.</p>
+                
+                <p>Whylder specializes in measurement framework design, analytics program architecture, and cross-functional strategy work—the kind of high-leverage, low-time-commitment engagements that drive disproportionate impact.</p>
+                
+                <h3>Deliverables</h3>
+                <p>Business playbooks. Pricing validation frameworks. Go-to-market strategy. Analytics capability assessments. Measurement system design. Team architecture for scale.</p>
+            </div>
+            <div class="story-visual">
+                <div class="visual-metric">
+                    <div class="visual-number">8+</div>
+                    <div class="visual-label">Years Operating</div>
+                    <div class="visual-description">Fractional consulting practice with proven playbooks, client frameworks, and strategic positioning. Ready to scale impact.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════════ -->
+    <!-- CAPABILITIES -->
+    <!-- ════════════════════════════════════════════════════════════ -->
+
+    <section class="capabilities">
+        <div class="capabilities-intro">
+            <h2>What I Actually Do</h2>
+            <p>Strategic capabilities that apply equally to full-time leadership roles and fractional consulting engagements. High-leverage work that transforms measurement, operations, and team performance.</p>
+        </div>
+
+        <div class="capabilities-grid">
+            <div class="capability-card scroll-reveal">
+                <div class="capability-icon">⚙️</div>
+                <h3>Build Systems</h3>
+                <p>I take broken, manual processes and re-engineer them end-to-end for scale, consistency, and automation.</p>
+                <ul class="capability-list">
+                    <li>Pipeline architecture</li>
+                    <li>Error detection & QA design</li>
+                    <li>Workflow documentation</li>
+                    <li>Scalable operations</li>
+                </ul>
+            </div>
+
+            <div class="capability-card scroll-reveal">
+                <div class="capability-icon">📊</div>
+                <h3>Architect Analytics</h3>
+                <p>I define what matters, measure it, and embed the results into business decision-making processes.</p>
+                <ul class="capability-list">
+                    <li>Measurement frameworks</li>
+                    <li>SAS, Python, R, SQL</li>
+                    <li>Tableau & visualization</li>
+                    <li>Self-service tools</li>
+                </ul>
+            </div>
+
+            <div class="capability-card scroll-reveal">
+                <div class="capability-icon">👥</div>
+                <h3>Grow Teams</h3>
+                <p>I build high-performing teams through deliberate development, trust-based leadership, and clear pathways for growth.</p>
+                <ul class="capability-list">
+                    <li>Coaching & mentorship</li>
+                    <li>Capability development</li>
+                    <li>Culture & retention</li>
+                    <li>Talent pathways</li>
+                </ul>
+            </div>
+
+            <div class="capability-card scroll-reveal">
+                <div class="capability-icon">💬</div>
+                <h3>Translate to Power</h3>
+                <p>I move data from technical reports into narratives that executives understand and act on.</p>
+                <ul class="capability-list">
+                    <li>Executive communication</li>
+                    <li>Stakeholder engagement</li>
+                    <li>Media relations</li>
+                    <li>Strategic narrative</li>
+                </ul>
+            </div>
+
+            <div class="capability-card scroll-reveal">
+                <div class="capability-icon">🎯</div>
+                <h3>Drive Execution</h3>
+                <p>I have a track record of delivering results under pressure—on time, on spec, with quality documented and maintained.</p>
+                <ul class="capability-list">
+                    <li>Project management (PMP)</li>
+                    <li>Deadline execution</li>
+                    <li>Stakeholder alignment</li>
+                    <li>Risk mitigation</li>
+                </ul>
+            </div>
+
+            <div class="capability-card scroll-reveal">
+                <div class="capability-icon">🏆</div>
+                <h3>Build for Impact</h3>
+                <p>I think in terms of business outcomes—what actually moves the needle for the organization I'm serving.</p>
+                <ul class="capability-list">
+                    <li>Commercial focus</li>
+                    <li>Enterprise strategy</li>
+                    <li>Measurable outcomes</li>
+                    <li>Sustained excellence</li>
+                </ul>
+            </div>
+
+            <div class="capability-card scroll-reveal">
+                <div class="capability-icon">🧭</div>
+                <h3>Strategic Consulting</h3>
+                <p>Fractional advisory work: measurement framework design, analytics program assessment, team architecture, go-to-market strategy, playbook development.</p>
+                <ul class="capability-list">
+                    <li>Measurement system design</li>
+                    <li>Analytics capability assessment</li>
+                    <li>Program architecture & roadmaps</li>
+                    <li>Strategic business playbooks</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════════ -->
+    <!-- FINAL CTA -->
+    <!-- ════════════════════════════════════════════════════════════ -->
+
+    <section class="final-cta">
+        <h2>Strategic Growth Mode</h2>
+        <p>I'm pivoting toward fractional strategic work—Director-level advisory, measurement framework design, analytics program transformation, and high-impact consulting engagements. Building high-performing systems and teams at scale, one organization at a time.</p>
+        <p style="font-size: 0.95rem; opacity: 0.8; margin-top: 1.5rem;">Also exploring select full-time Director/VP Analytics roles in mission-driven organizations where measurement rigor and team development are competitive advantages.</p>
+        <div class="cta-buttons">
+            <a href="mailto:info@whylderconsulting.com" class="btn btn-primary">Consulting Inquiries</a>
+            <a href="https://www.linkedin.com/in/kristie-wilder" class="btn btn-secondary" target="_blank">LinkedIn</a>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════════ -->
+    <!-- FOOTER -->
+    <!-- ════════════════════════════════════════════════════════════ -->
+
+    <footer>
+        <p>© 2025 Kristie Wilder | Analytics Leadership & Strategic Consulting</p>
+        <p style="margin-top: 1rem; font-size: 0.85rem;">
+            Consulting: <a href="mailto:info@whylderconsulting.com">info@whylderconsulting.com</a> | 
+            Direct: <a href="mailto:kristie.s.wilder@gmail.com">kristie.s.wilder@gmail.com</a> | 
+            <a href="https://www.linkedin.com/in/kristie-wilder" target="_blank">LinkedIn</a>
+        </p>
+    </footer>
+
+    <script>
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll('.scroll-reveal');
+
+        const revealOnScroll = () => {
+            revealElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Initial check on page load
+
+        // Smooth scroll for nav
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
